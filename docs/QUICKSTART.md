@@ -30,11 +30,27 @@ npm.cmd run dev -- --host 127.0.0.1 --port 5173
 ```
 *Expected log: `VITE ready in ... ms ➜ Local: http://127.0.0.1:5173/`*
 
-### Terminal 3 — Native Tauri Desktop App
+### Terminal 3 — Native Tauri Desktop App (Development)
 ```powershell
 powershell.exe -ExecutionPolicy Bypass -File scripts\cargo_wrapper.ps1 run
 ```
-*Expected result: The transparent native desktop window (`meli-app.exe`) opens on your desktop.*
+*Expected result: The transparent native desktop window (`meli-app.exe`) opens on your desktop connected to the Vite dev server.*
+
+---
+
+## 2.1 Production Standalone Windows Release Launch
+
+For production deployment, Meli does **not** require Node.js, Vite, or a development server. The frontend is embedded directly into the standalone PE binary:
+
+```powershell
+# 1. Package the self-contained release directory
+python scripts\package_windows_release.py
+
+# 2. Launch the standalone desktop companion directly
+.\release\meli-v1.0.0-windows-x64\meli-app.exe
+```
+
+*Expected result: Meli launches immediately as a self-contained native desktop companion with embedded UI assets and bundled runtime DLLs (`libunwind.dll`, `libc++.dll`, `WebView2Loader.dll`).*
 
 ---
 

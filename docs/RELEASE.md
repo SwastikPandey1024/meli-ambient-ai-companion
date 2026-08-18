@@ -39,25 +39,54 @@ Prior to tagging or publishing a release:
 
 ---
 
-## 3. Building Production Bundles
+## 3. Building Production Bundles & Standalone Packaging
 
-### Frontend Bundle
+### Step 1: Compile Frontend Bundle
 ```powershell
 npm.cmd run build
 ```
-*Outputs static assets into `dist/`.*
+*Compiles TypeScript and bundles static frontend assets into `dist/`.*
 
-### Native Windows Tauri Installer / Executable
+### Step 2: Build Native Release Binary
 ```powershell
-npm.cmd run tauri build
+powershell.exe -ExecutionPolicy Bypass -File scripts\cargo_wrapper.ps1 build --release
 ```
-*Outputs the production executable and MSI/NSIS installer into `src-tauri/target/release/`.*
+*Compiles optimized release binary `meli-app.exe` with embedded frontend assets.*
+
+### Step 3: Package Self-Contained Release
+```powershell
+python scripts\package_windows_release.py
+```
+*Packages `meli-app.exe` alongside required native PE runtime DLLs (`libunwind.dll`, `libc++.dll`, `WebView2Loader.dll`) into `release/meli-v1.0.0-windows-x64/`.*
+
+### Step 4: Verify Standalone Integrity
+```powershell
+python scripts\test_standalone_release.py
+```
+*Validates that the packaged binary boots cleanly in an isolated environment without Vite or compiler PATH dependencies.*
 
 ---
 
-## 4. Versioning Standards
+## 4. Release Layout Specification
+
+```
+release/meli-v1.0.0-windows-x64/
+├── meli-app.exe         # Standalone desktop application with embedded UI
+├── libunwind.dll        # LLVM MinGW unwinder runtime library
+├── libc++.dll           # LLVM C++ runtime library
+├── WebView2Loader.dll   # Microsoft WebView2 native loader
+├── README.md            # Product overview & manual quickstart
+└── LICENSE              # MIT License
+```
+
+---
+
+## 5. Versioning Standards
 
 Meli adheres to [Semantic Versioning (SemVer 2.0.0)](https://semver.org/):
+- **MAJOR** (`1.0.0`): Incompatible architectural or protocol breaking changes.
+- **MINOR** (`0.1.0`): Backwards-compatible new features (e.g. vision pipelines).
+- **PATCH** (`0.0.1`): Backwards-compatible bug fixes and motion calibrations.
 - **MAJOR (`x.0.0`)**: Breaking architectural changes, major database schema overhauls.
 - **MINOR (`0.x.0`)**: New companion capabilities, voice providers, or tool integrations.
 - **PATCH (`0.0.x`)**: Bug fixes, performance optimizations, and visual calibrations.

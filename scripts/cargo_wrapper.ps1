@@ -12,3 +12,19 @@ Set-Location "src-tauri"
 rustup default stable-x86_64-pc-windows-gnullvm
 cargo @CargoArgs
 
+# Synchronize runtime DLLs into target release and debug folders
+$targetBase = "C:\Users\Public\meli_target"
+$runtimeDlls = @("libunwind.dll", "libc++.dll")
+foreach ($folder in @("release", "debug")) {
+    $dir = Join-Path $targetBase $folder
+    if (Test-Path $dir) {
+        foreach ($dll in $runtimeDlls) {
+            $src = Join-Path $llvmMinGwBin $dll
+            $dst = Join-Path $dir $dll
+            if (Test-Path $src) {
+                Copy-Item -Path $src -Destination $dst -Force -ErrorAction SilentlyContinue
+            }
+        }
+    }
+}
+
