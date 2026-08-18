@@ -1,0 +1,216 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CharacterAssetManifest",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "character",
+    "persona_metadata",
+    "canonical_reference",
+    "global_geometry",
+    "technical_requirements",
+    "assets"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "enum": ["1.0.0"]
+    },
+    "character": {
+      "type": "string"
+    },
+    "persona_metadata": {
+      "type": "object",
+      "required": ["demographic", "archetype", "tone"],
+      "properties": {
+        "demographic": { "type": "string", "enum": ["Young Adult — 18+"] },
+        "archetype": { "type": "string" },
+        "tone": { "type": "string" }
+      }
+    },
+    "description": {
+      "type": "string"
+    },
+    "canonical_reference": {
+      "type": "string"
+    },
+    "global_geometry": {
+      "type": "object",
+      "required": [
+        "reference_canvas",
+        "master_canvas",
+        "safety_margin_px",
+        "bounding_box",
+        "anchors",
+        "motion_envelope"
+      ],
+      "properties": {
+        "reference_canvas": {
+          "type": "object",
+          "required": ["width", "height", "unit"],
+          "properties": {
+            "width": { "type": "integer", "enum": [512] },
+            "height": { "type": "integer", "enum": [512] },
+            "unit": { "type": "string", "enum": ["px"] }
+          }
+        },
+        "master_canvas": {
+          "type": "object",
+          "required": ["width", "height", "unit"],
+          "properties": {
+            "width": { "type": "integer", "enum": [768] },
+            "height": { "type": "integer", "enum": [768] },
+            "unit": { "type": "string", "enum": ["px"] }
+          }
+        },
+        "safety_margin_px": { "type": "integer", "enum": [16] },
+        "bounding_box": {
+          "type": "object",
+          "required": ["min_x", "min_y", "max_x", "max_y", "width", "height"],
+          "properties": {
+            "min_x": { "type": "integer", "enum": [16] },
+            "min_y": { "type": "integer", "enum": [16] },
+            "max_x": { "type": "integer", "enum": [496] },
+            "max_y": { "type": "integer", "enum": [496] },
+            "width": { "type": "integer", "enum": [480] },
+            "height": { "type": "integer", "enum": [480] }
+          }
+        },
+        "anchors": {
+          "type": "object",
+          "required": ["gaze_anchor", "signal_heart_anchor", "grounding_anchor"],
+          "properties": {
+            "gaze_anchor": {
+              "type": "object",
+              "required": ["x", "y"],
+              "properties": {
+                "x": { "type": "integer", "enum": [256] },
+                "y": { "type": "integer", "enum": [168] },
+                "description": { "type": "string" }
+              }
+            },
+            "signal_heart_anchor": {
+              "type": "object",
+              "required": ["x", "y"],
+              "properties": {
+                "x": { "type": "integer", "enum": [256] },
+                "y": { "type": "integer", "enum": [294] },
+                "description": { "type": "string" }
+              }
+            },
+            "grounding_anchor": {
+              "type": "object",
+              "required": ["x", "y"],
+              "properties": {
+                "x": { "type": "integer", "enum": [256] },
+                "y": { "type": "integer", "enum": [496] },
+                "description": { "type": "string" }
+              }
+            }
+          }
+        },
+        "motion_envelope": {
+          "type": "object",
+          "required": ["max_translation_px", "max_rotation_deg", "states"],
+          "properties": {
+            "max_translation_px": { "type": "number", "maximum": 4.0 },
+            "max_rotation_deg": { "type": "number", "maximum": 2.0 },
+            "states": { "type": "object" }
+          }
+        }
+      }
+    },
+    "technical_requirements": {
+      "type": "object",
+      "required": [
+        "primary_format",
+        "runtime_format",
+        "color_profile",
+        "alpha_handling",
+        "background"
+      ],
+      "properties": {
+        "primary_format": { "type": "string" },
+        "runtime_format": { "type": "string" },
+        "color_profile": { "type": "string" },
+        "alpha_handling": { "type": "string" },
+        "background": { "type": "string" }
+      }
+    },
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "filename",
+          "category",
+          "mood_state",
+          "description",
+          "canvas_size",
+          "transparency_requirement",
+          "gaze_anchor",
+          "signal_heart_anchor",
+          "grounding_anchor",
+          "bounding_box",
+          "status"
+        ],
+        "properties": {
+          "id": { "type": "string" },
+          "filename": { "type": "string" },
+          "category": { "type": "string", "enum": ["base_layer", "expression_overlay"] },
+          "mood_state": { "type": "string" },
+          "description": { "type": "string" },
+          "canvas_size": {
+            "type": "object",
+            "required": ["width", "height"],
+            "properties": {
+              "width": { "type": "integer", "enum": [512] },
+              "height": { "type": "integer", "enum": [512] }
+            }
+          },
+          "transparency_requirement": { "type": "string" },
+          "gaze_anchor": {
+            "type": "object",
+            "required": ["x", "y"],
+            "properties": {
+              "x": { "type": "integer" },
+              "y": { "type": "integer" }
+            }
+          },
+          "signal_heart_anchor": {
+            "type": "object",
+            "required": ["x", "y"],
+            "properties": {
+              "x": { "type": "integer" },
+              "y": { "type": "integer" }
+            }
+          },
+          "grounding_anchor": {
+            "type": "object",
+            "required": ["x", "y"],
+            "properties": {
+              "x": { "type": "integer" },
+              "y": { "type": "integer" }
+            }
+          },
+          "bounding_box": {
+            "type": "object",
+            "required": ["min_x", "min_y", "max_x", "max_y", "safe_margin_px"],
+            "properties": {
+              "min_x": { "type": "integer" },
+              "min_y": { "type": "integer" },
+              "max_x": { "type": "integer" },
+              "max_y": { "type": "integer" },
+              "safe_margin_px": { "type": "integer" }
+            }
+          },
+          "status": {
+            "type": "string",
+            "enum": ["planned", "ready", "deprecated"]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "assets/meli/character/states/meli_idle.png": "dbb190b59ea282f60d808236c8952d42fc6db1b64db00c7b743f07af47136b26",
+  "assets/meli/character/states/meli_curious.png": "95635205b9c6de88080944d915f062b03a7f726f876dffaf0d8ac1d94348ea87",
+  "assets/meli/character/states/meli_happy.png": "bae7ee5fcd77940cd8237352493090cd9464c798399885e04ad580863a4ada1e",
+  "assets/meli/character/states/meli_thinking.png": "63e141d066ee035adc84b8aca3d8ff91b22186e2179d14fe949b6c4d6a6a8a4b",
+  "assets/meli/character/states/meli_working.png": "ebfcbec91660bc059af04b50546e42c349f610f10054ce0c2bbb42e0e7528731",
+  "assets/meli/character/states/meli_focused.png": "3a22e51d2dd7fc74a11e59a777b239cdae4680b8c3ca6ca681d2b82877793d54",
+  "assets/meli/character/states/meli_sleepy.png": "985ce64fca6e4508d34e626d144a2c2b8e24a48c9b434821d130b99deda7ccf2",
+  "assets/meli/character/states/meli_confused.png": "0d8dc83025288285d1df0cc4804f9ef7a36216f8635a6dd881620650daa7466d",
+  "assets/meli/character/states/meli_surprised.png": "e1af3a996590d4c7c94b129adde011bb6ea5e9e7156150d88833adc5719c7d78",
+  "assets/meli/character/states/meli_error.png": "2f285a3d03f2238533827c95586f97f3d75c2c88a240a67000511546037efd0e",
+  "assets/meli/character/states/meli_complete.png": "24f4315c9e8b111186313bfacd9c3e3cbd6bfe0759772ef38cff3847b5a142be",
+  "assets/meli/character/states/meli_greeting.png": "96aa79aeae863d8baaf9abb17a2d2d06093b62104a709bad8be42c07e29d1990",
+  "assets/meli/character/meli_body_base.png": "1a2047a3bf706bc160f373b5541fa5a5970e5e698a33d1d281cfabb4459e3cbf",
+  "design/meli_canonical_character_sheet.png": "572e2f12dd1c3f0336bbea51bdb854b4d2ef6b2cb6c6b87bd6b156abc22cd8f8"
+}

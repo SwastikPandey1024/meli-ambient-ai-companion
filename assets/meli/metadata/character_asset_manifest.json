@@ -1,0 +1,410 @@
+{
+  "$schema": "./character_asset_manifest.schema.json",
+  "schema_version": "2.0.0",
+  "character": "Meli",
+  "persona_metadata": {
+    "demographic": "Young Adult \u2014 18+",
+    "archetype": "Ambient AI Companion",
+    "tone": "Warm, curious, observant, playful, calm, awkward, intelligent, respectful"
+  },
+  "description": "Production character asset manifest, spatial anchor registry, and motion envelope specification for Meli ambient AI companion.",
+  "canonical_reference": "design/meli_canonical_character_sheet.png",
+  "global_geometry": {
+    "reference_canvas": {
+      "width": 512,
+      "height": 512,
+      "unit": "px"
+    },
+    "master_canvas": {
+      "width": 768,
+      "height": 768,
+      "unit": "px"
+    },
+    "safety_margin_px": 16,
+    "bounding_box": {
+      "min_x": 16,
+      "min_y": 16,
+      "max_x": 496,
+      "max_y": 496,
+      "width": 480,
+      "height": 480
+    },
+    "anchors": {
+      "gaze_anchor": {
+        "x": 256,
+        "y": 108,
+        "description": "Eye iris gaze tracking center origin (pixel-verified: Y=108 on 512x512 canvas)"
+      },
+      "signal_heart_anchor": {
+        "x": 256,
+        "y": 294,
+        "description": "Chest-mounted Signal Heart ambient light and particle emitter origin"
+      },
+      "grounding_anchor": {
+        "x": 256,
+        "y": 496,
+        "description": "Screen margin contact and desktop snapping baseline footprint"
+      }
+    },
+    "motion_envelope": {
+      "max_translation_px": 4.0,
+      "max_rotation_deg": 2.0,
+      "states": {
+        "idle": {
+          "max_translation_px": 2.0,
+          "max_rotation_deg": 0.0
+        },
+        "proximity": {
+          "max_translation_px": 2.0,
+          "max_rotation_deg": 2.0
+        },
+        "hover": {
+          "max_translation_px": 3.5,
+          "max_rotation_deg": 2.0
+        },
+        "click_pet": {
+          "max_translation_px": 4.0,
+          "max_rotation_deg": 2.0
+        },
+        "sink_compress": {
+          "translate_y_max_px": 4.0,
+          "scale_y": 0.92,
+          "scale_x": 1.04,
+          "max_rotation_deg": 0.0
+        },
+        "pop_back": {
+          "translate_y_max_px": -3.0,
+          "scale_y": 1.03,
+          "scale_x": 0.98,
+          "max_rotation_deg": 2.0
+        }
+      }
+    }
+  },
+  "technical_requirements": {
+    "primary_format": "PNG (32-bit RGBA, 8bpc)",
+    "runtime_format": "WebP (lossless/near-lossless alpha)",
+    "color_profile": "sRGB",
+    "alpha_handling": "Straight alpha / clean matte, zero white halo fringing",
+    "background": "100% transparent"
+  },
+  "assets": [
+    {
+      "id": "meli_body_base",
+      "filename": "meli_body_base.png",
+      "category": "base_layer",
+      "mood_state": "base",
+      "description": "Frozen Phase 0 canonical base sprite",
+      "canvas_size": {
+        "width": 512,
+        "height": 512
+      },
+      "status": "ready"
+    },
+    {
+      "id": "meli_idle",
+      "filename": "meli_idle.png",
+      "path": "assets/meli/character/states/meli_idle.png",
+      "category": "performance_state",
+      "mood_state": "idle",
+      "description": "Default baseline standby resting performance with calm almond gaze",
+      "canvas_size": {
+        "width": 512,
+        "height": 512
+      },
+      "transparency_requirement": "transparent 32-bit RGBA",
+      "status": "ready",
+      "qa_validated": true
+    },
+    {
+      "id": "meli_curious",
+      "filename": "meli_curious.png",
+      "path": "assets/meli/character/states/meli_curious.png",
+      "category": "performance_state",
+      "mood_state": "curious",
+      "description": "Inquisitive bright gaze, raised brows, tiny curious smile, slight head tilt",
+      "canvas_size": {
+        "width": 512,
+        "height": 512
+      },
+      "transparency_requirement": "transparent 32-bit RGBA",
+      "status": "ready",
+      "qa_validated": true
+    },
+    {
+      "id": "meli_happy",
+      "filename": "meli_happy.png",
+      "path": "assets/meli/character/states/meli_happy.png",
+      "category": "performance_state",
+      "mood_state": "happy",
+      "description": "Smiling eyes, rosy cheek blush, joyful cheerful posture",
+      "canvas_size": {
+        "width": 512,
+        "height": 512
+      },
+      "transparency_requirement": "transparent 32-bit RGBA",
+      "status": "ready",
+      "qa_validated": true
+    },
+    {
+      "id": "meli_thinking",
+      "filename": "meli_thinking.png",
+      "path": "assets/meli/character/states/meli_thinking.png",
+      "category": "performance_state",
+      "mood_state": "thinking",
+      "description": "Thoughtful upward/lateral gaze, hand near collar, analytical posture",
+      "canvas_size": {
+        "width": 512,
+        "height": 512
+      },
+      "transparency_requirement": "transparent 32-bit RGBA",
+      "status": "ready",
+      "qa_validated": true
+    },
+    {
+      "id": "meli_working",
+      "filename": "meli_working.png",
+      "path": "assets/meli/character/states/meli_working.png",
+      "category": "performance_state",
+      "mood_state": "working",
+      "description": "Concentrated engaged state holding tech laptop, productive posture",
+      "canvas_size": {
+        "width": 512,
+        "height": 512
+      },
+      "transparency_requirement": "transparent 32-bit RGBA",
+      "status": "ready",
+      "qa_validated": true
+    },
+    {
+      "id": "meli_focused",
+      "filename": "meli_focused.png",
+      "path": "assets/meli/character/states/meli_focused.png",
+      "category": "performance_state",
+      "mood_state": "focused",
+      "description": "Narrowed determined gaze, upright concentrated posture, serious but calm",
+      "canvas_size": {
+        "width": 512,
+        "height": 512
+      },
+      "transparency_requirement": "transparent 32-bit RGBA",
+      "status": "ready",
+      "qa_validated": true
+    },
+    {
+      "id": "meli_sleepy",
+      "filename": "meli_sleepy.png",
+      "path": "assets/meli/character/states/meli_sleepy.png",
+      "category": "performance_state",
+      "mood_state": "sleepy",
+      "description": "Heavy drooping eyelids, relaxed soft shoulders, cozy resting stance",
+      "canvas_size": {
+        "width": 512,
+        "height": 512
+      },
+      "transparency_requirement": "transparent 32-bit RGBA",
+      "status": "ready",
+      "qa_validated": true
+    },
+    {
+      "id": "meli_confused",
+      "filename": "meli_confused.png",
+      "path": "assets/meli/character/states/meli_confused.png",
+      "category": "performance_state",
+      "mood_state": "confused",
+      "description": "Asymmetrical brows, head tilt, questioning gaze, hand raised quizzically",
+      "canvas_size": {
+        "width": 512,
+        "height": 512
+      },
+      "transparency_requirement": "transparent 32-bit RGBA",
+      "status": "ready",
+      "qa_validated": true
+    },
+    {
+      "id": "meli_surprised",
+      "filename": "meli_surprised.png",
+      "path": "assets/meli/character/states/meli_surprised.png",
+      "category": "performance_state",
+      "mood_state": "surprised",
+      "description": "Widened round pupils, raised brows, small o mouth, subtle alert recoil",
+      "canvas_size": {
+        "width": 512,
+        "height": 512
+      },
+      "transparency_requirement": "transparent 32-bit RGBA",
+      "status": "ready",
+      "qa_validated": true
+    },
+    {
+      "id": "meli_error",
+      "filename": "meli_error.png",
+      "path": "assets/meli/character/states/meli_error.png",
+      "category": "performance_state",
+      "mood_state": "error",
+      "description": "Worried brows, downward apologetic gaze, hands together, glowing amber Signal Heart",
+      "canvas_size": {
+        "width": 512,
+        "height": 512
+      },
+      "transparency_requirement": "transparent 32-bit RGBA",
+      "status": "ready",
+      "qa_validated": true
+    },
+    {
+      "id": "meli_complete",
+      "filename": "meli_complete.png",
+      "path": "assets/meli/character/states/meli_complete.png",
+      "category": "performance_state",
+      "mood_state": "complete",
+      "description": "Radiant joyful smile, proud victory celebration gesture, glowing emerald heart",
+      "canvas_size": {
+        "width": 512,
+        "height": 512
+      },
+      "transparency_requirement": "transparent 32-bit RGBA",
+      "status": "ready",
+      "qa_validated": true
+    },
+    {
+      "id": "meli_greeting",
+      "filename": "meli_greeting.png",
+      "path": "assets/meli/character/states/meli_greeting.png",
+      "category": "performance_state",
+      "mood_state": "greeting",
+      "description": "Welcoming eye contact, gentle hand wave, friendly approachable posture",
+      "canvas_size": {
+        "width": 512,
+        "height": 512
+      },
+      "transparency_requirement": "transparent 32-bit RGBA",
+      "status": "ready",
+      "qa_validated": true
+    },
+    {
+      "id": "meli_proximity",
+      "filename": "meli_proximity.png",
+      "path": "assets/meli/character/special/meli_proximity.png",
+      "category": "special_performance",
+      "mood_state": "proximity",
+      "description": "Quiet cursor awareness — relaxed upright stance, hand gently touching hoodie drawstring, head turned with soft observant side-gaze, calm half-lidded eyes. Signal Heart glows pink.",
+      "signal_heart": "pink",
+      "pose_intent": "PROXIMITY_QUIET_AWARENESS",
+      "canvas_size": {
+        "width": 512,
+        "height": 512
+      },
+      "transparency_requirement": "transparent 32-bit RGBA",
+      "status": "ready",
+      "qa_validated": true,
+      "rebuild_version": "phase_c_2026_08_18"
+    },
+    {
+      "id": "meli_hover",
+      "filename": "meli_hover.png",
+      "path": "assets/meli/character/special/meli_hover.png",
+      "category": "special_performance",
+      "mood_state": "hover",
+      "description": "Active playful engagement — both arms raised wide and high with fists pumped, wide dynamic stance, direct forward gaze, big open grin, sparkling amber eyes. Signal Heart glows green with sparkle particles.",
+      "signal_heart": "green",
+      "pose_intent": "HOVER_ACTIVE_ENGAGEMENT",
+      "canvas_size": {
+        "width": 512,
+        "height": 512
+      },
+      "transparency_requirement": "transparent 32-bit RGBA",
+      "status": "ready",
+      "qa_validated": true,
+      "rebuild_version": "phase_c_2026_08_18"
+    },
+    {
+      "id": "meli_click_pet",
+      "filename": "meli_click_pet.png",
+      "path": "assets/meli/character/special/meli_click_pet.png",
+      "category": "special_performance",
+      "mood_state": "click_pet",
+      "description": "Affectionate tactile response — both hands raised to cheeks in flustered bashful pose, shoulders raised, eyes closed in happy crescent smile, heavy blush marks, small hearts floating around. Warm flustered energy.",
+      "signal_heart": "pink",
+      "pose_intent": "CLICK_PET_FLUSTERED_AFFECTION",
+      "canvas_size": {
+        "width": 512,
+        "height": 512
+      },
+      "transparency_requirement": "transparent 32-bit RGBA",
+      "status": "ready",
+      "qa_validated": true,
+      "rebuild_version": "phase_c_2026_08_18"
+    },
+    {
+      "id": "meli_celebration",
+      "filename": "meli_celebration.png",
+      "path": "assets/meli/character/special/meli_celebration.png",
+      "category": "special_performance",
+      "mood_state": "celebration",
+      "description": "Asymmetric victory pose — right arm raised high with fist, left fist pumping lower, wide dynamic stance, big open joyful grin, blush marks, colorful confetti and sparkle particles. No text overlays. Signal Heart glows green.",
+      "signal_heart": "green",
+      "pose_intent": "CELEBRATION_VICTORY",
+      "canvas_size": {
+        "width": 512,
+        "height": 512
+      },
+      "transparency_requirement": "transparent 32-bit RGBA",
+      "status": "ready",
+      "qa_validated": true,
+      "rebuild_version": "phase_c_2026_08_18"
+    }
+  ],
+  "coordinate_contract": {
+    "pipeline_version": "4.0.0",
+    "verified_by": "pixel-sampling meli_body_base.png",
+    "canvas": {
+      "width": 512,
+      "height": 512
+    },
+    "face_bbox": {
+      "min_x": 210,
+      "min_y": 65,
+      "max_x": 310,
+      "max_y": 155
+    },
+    "approved_overlay_bbox": {
+      "min_x": 198,
+      "min_y": 57,
+      "max_x": 322,
+      "max_y": 163
+    },
+    "left_eye_center": {
+      "x": 234,
+      "y": 108
+    },
+    "right_eye_center": {
+      "x": 279,
+      "y": 108
+    },
+    "gaze_anchor": {
+      "x": 256,
+      "y": 108
+    },
+    "brow_y": 88,
+    "mouth_y": 143,
+    "blush_y": 130,
+    "root_cause_fix": "Previous pipeline used Y=168 for gaze_anchor (hoodie area). Corrected to Y=108 (actual eye iris level, pixel-verified)."
+  },
+  "architecture": "Standalone Performance Master Architecture (v2)",
+  "master_performance_sheet": "design/meli_performance_master_sheet.png",
+  "qa_review_sheet": "design/qa/meli_performance_review.png",
+  "runtime_state_mapping": {
+    "IDLE": "assets/meli/character/states/meli_idle.png",
+    "THINKING": "assets/meli/character/states/meli_thinking.png",
+    "MEMORY_RETRIEVED": "assets/meli/character/states/meli_curious.png",
+    "RESPONSE_STREAM": "assets/meli/character/states/meli_focused.png",
+    "RESPONSE_COMPLETED": "assets/meli/character/states/meli_complete.png",
+    "ERROR": "assets/meli/character/states/meli_error.png",
+    "APP_LAUNCH": "assets/meli/character/states/meli_greeting.png",
+    "SLEEP": "assets/meli/character/states/meli_sleepy.png",
+    "HOVER": "assets/meli/character/special/meli_hover.png",
+    "CLICK_PET": "assets/meli/character/special/meli_click_pet.png",
+    "PROXIMITY": "assets/meli/character/special/meli_proximity.png",
+    "CELEBRATION": "assets/meli/character/special/meli_celebration.png"
+  }
+}
