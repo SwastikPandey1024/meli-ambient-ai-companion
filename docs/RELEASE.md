@@ -4,9 +4,28 @@ This document outlines the release checklist, build packaging instructions, and 
 
 ---
 
-## 1. Release Verification Checklist
+## 1. Current Release: `v1.0.0` (First Public Production Milestone)
 
-Prior to tagging or publishing a release candidate:
+- **Release Date**: 2026-08-19
+- **Target Version**: `1.0.0`
+- **Milestone Scope**:
+  - Ambient AI desktop companion with transparent high-DPI desktop windowing
+  - Full PostgreSQL conversation & salient fact memory persistence
+  - Elasticsearch BM25 enterprise RAG knowledge retrieval
+  - Voice intelligence (Push-to-Talk `Ctrl+Shift+V`, Whisper STT, feminine TTS voice presets)
+  - Tool intelligence framework with `CREATE_NOTE` interactive confirmation and hard-blocked shell commands
+  - 16 frozen standalone character illustrations with 0-latency preloading
+  - Dynamic 1200ms SINK/POP grounded physics animation
+  - Aligned Signal Heart chest emblem system (`X=53.50%, Y=47.00%`)
+  - Auto-expanding side-by-side chat drawer (`+340px`)
+  - Responsive layout across S/M/L presets with zero crop
+  - 16-card Asset Performance Showcase (`Ctrl+Shift+S`)
+
+---
+
+## 2. Release Verification Checklist
+
+Prior to tagging or publishing a release:
 
 - [x] All 16 standalone PNG illustrations verified intact and frozen.
 - [x] Frontend Vitest suite passes 100% (`80 / 80` tests passed).
@@ -20,7 +39,7 @@ Prior to tagging or publishing a release candidate:
 
 ---
 
-## 2. Building Production Bundles
+## 3. Building Production Bundles
 
 ### Frontend Bundle
 ```powershell
@@ -36,7 +55,7 @@ npm.cmd run tauri build
 
 ---
 
-## 3. Versioning Standards
+## 4. Versioning Standards
 
 Meli adheres to [Semantic Versioning (SemVer 2.0.0)](https://semver.org/):
 - **MAJOR (`x.0.0`)**: Breaking architectural changes, major database schema overhauls.

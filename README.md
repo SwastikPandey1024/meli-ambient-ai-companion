@@ -163,6 +163,10 @@ Meli/
 ## 📄 Documentation Index
 
 - [**Quickstart Guide**](docs/QUICKSTART.md) — Step-by-step setup and manual acceptance walkthrough.
+- [**Product Requirements Document (PRD)**](docs/PRD.md) — Product vision, functional and non-functional requirements.
+- [**Business Requirements Document (BRD)**](docs/BRD.md) — Business objectives, value drivers, and KPIs.
+- [**Software Requirements Specification (SRS)**](docs/SRS.md) — Detailed technical specifications, interfaces, and parameters.
+- [**Architecture Decision Records (ADR)**](docs/ADR.md) — Technical decision logs for LLM, assets, voice, and windowing.
 - [**Architecture Specification**](docs/ARCHITECTURE.md) — Full technical breakdown of state machine, voice, and RAG.
 - [**Testing Guide**](docs/TESTING.md) — Comprehensive test matrix and verification commands.
 - [**Security Policy**](docs/SECURITY.md) — Tool permission models and secret handling.

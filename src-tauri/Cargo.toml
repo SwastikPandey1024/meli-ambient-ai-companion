@@ -1,6 +1,6 @@
 [package]
 name = "meli-app"
-version = "0.1.0"
+version = "1.0.0"
 description = "Meli — Ambient AI Companion"
 authors = ["Meli Engineering Team"]
 edition = "2021"
